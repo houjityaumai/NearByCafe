@@ -35,12 +35,6 @@ class ShopsController < ApplicationController
       logger.debug(f[0])
       logger.debug(f[1])
     end
-    logger.debug(@shops)
-
-
-    # logger.debug("-----------------------------------------")
-    # logger.debug(feature)
-    # logger.debug("-----------------------------------------")
   end
 
   def search
