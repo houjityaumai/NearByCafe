@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.order(created_at: :desc)
   end
 
   def show
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to shops_path
     else
-      render'new'
+      render :new
     end
   end
 
