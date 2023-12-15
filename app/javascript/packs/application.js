@@ -12,6 +12,5 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-
 //自作jsファイル
 import "./main"

@@ -58,3 +58,5 @@ gem 'bootstrap', '4.6.1'
 
 #ホットペッパーapi
 gem 'httparty'
+
+gem 'jquery-turbolinks'
