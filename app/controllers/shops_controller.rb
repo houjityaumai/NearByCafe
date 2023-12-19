@@ -10,17 +10,15 @@ class ShopsController < ApplicationController
   end
 
   def position
-  
-
-
-
-
+    position = get_lat_and_lon #緯度経度を取得
+    p "------------------------"
+    p position
     yahoo_key = "64021912cf2b3b35"
     url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
     url.query = URI.encode_www_form({
       key: yahoo_key,
-      lat: 35.4622429,
-      lng: 133.0664864,
+      lat: params[:latitude],
+      lng: params[:longitude],
       range: 5 ,
       genre: 'G014', # カフェを選択
       keyword: params[:keyword],
@@ -42,6 +40,14 @@ class ShopsController < ApplicationController
   end
 
   def search
+  end
+
+  private
+
+  def get_lat_and_lon
+    # latitude:緯度、longitude:経度
+    return {latitude: params[:latitude],
+              longitude: params[:longitude]}
   end
 end
 
