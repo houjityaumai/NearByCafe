@@ -14,9 +14,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(get_user)
     if @user.save
-      redirect_to users_path
+      redirect_to shops_path
     else
-      render :new
+      render'new'
     end
   end
 
