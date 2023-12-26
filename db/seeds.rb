@@ -12,3 +12,5 @@ puts "user初期データ生成"
 CSV.foreach("db/user_csv.csv", headers: true) do |row|
   User.create(name: row["name"], email: row["email"], password: row["password"], password_confirmation: row["password"])
 end
+
+
