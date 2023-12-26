@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  protect_from_forgery except: :positionjs
   require 'net/http'
   require 'uri'
   require 'json'
@@ -9,10 +10,21 @@ class ShopsController < ApplicationController
   def show
   end
 
+  def positionjs
+    respond_to do |format|
+      format.js
+    end
+    # render formats: :js
+    # render "positionjs.js.erb", content_type: "text/javascript"
+  end
+
   def position
+
     position = get_lat_and_lon #緯度経度を取得
     p "------------------------"
-    p position
+    p params[:latitude]
+    p params[:longitude]
+    p 35.4615296
     yahoo_key = "64021912cf2b3b35"
     url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
     url.query = URI.encode_www_form({
@@ -21,8 +33,6 @@ class ShopsController < ApplicationController
       lng: params[:longitude],
       range: 5 ,
       genre: 'G014', # カフェを選択
-      keyword: params[:keyword],
-      large_area: params[:large_area],
       count: 20,
       format: 'json'
     })
@@ -34,9 +44,8 @@ class ShopsController < ApplicationController
     logger.debug(json["results"]["shop"])
     @shops = []
     json["results"]["shop"].each do |shop|
-      @shops << Utils::Shop.new(shop["name"], shop["address"])
+      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"])
     end
-
   end
 
   def search

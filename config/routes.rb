@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     collection do
       get "position"
       get "search"
+      get "positionjs"
     end
   end
 

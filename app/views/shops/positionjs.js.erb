@@ -1,0 +1,18 @@
+navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+
+function successCallback(position){
+  if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(
+      function(position){
+          window.location.href = "/shops/position?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude
+      }
+    )
+  }
+};
+
+
+function errorCallback(error){
+  alert("位置情報が取得できませんでした");
+};
+
+

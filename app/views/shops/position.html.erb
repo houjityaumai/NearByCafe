@@ -1,5 +1,9 @@
 <h1>Shops#position</h1>
-<p>Find me in app/views/shops/position.html.erb</p>
-<% @shops.each do |shop| %>
-<p><%= shop.name %>/<%= shop.address %></p>
-<% end %>
+
+<p id="abc">Find me in app/views/shops/position.html.erb</p>
+<%= link_to "位置情報を更新", action: :positionjs, remote: true %>
+<div class="shops">
+  <% @shops.each do |shop| %>
+    <p><%= shop.name %>/<%= shop.address %></p>
+  <% end %>
+</div>
