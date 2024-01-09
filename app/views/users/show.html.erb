@@ -6,23 +6,23 @@
   </tr>
     <tr>
     <th>email</th>
-    <td><%= @user.created_at %></td>
+    <td><%= @user.email %></td>
   </tr>
 
     <tr>
     <th>created_at</th>
-    <td><%= @user.created_at %></td>
+    <td><%= @user.created_at.strftime("%Y/%m/%d") %></td>
   </tr>
   <tr>
     <th>updated_at</th>
-    <td><%= @user.updated_at %></td>
+    <td><%= @user.updated_at.strftime("%Y/%m/%d") %></td>
   </tr>
 </table>
 
 <% if current_user?(@user) %>
   <%= link_to '編集', edit_user_path(@user.id) %>
   <%= link_to "削除", user_path(@user.id),  
-            method: :delete, data: {confirm: "本当に削除しますか？"} %>
+            method: :delete, data: {confirm: "※削除するとログアウトされこのユーザでは再ログインできなくなります、そして最悪の場合お使いのパソコンのデータが破損する可能性がありますが、本当に削除しますか？"} %>
 <% else %>
   <p>じぶのしかへんしゅうさくじょできない</p>
 <% end %>

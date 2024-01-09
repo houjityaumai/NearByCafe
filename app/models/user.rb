@@ -13,6 +13,6 @@ class User < ApplicationRecord
     }
   validates :password_digest,
   length: {
-    maximum: 30
+    maximum: 300
   }
 end

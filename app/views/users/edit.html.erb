@@ -1,4 +1,4 @@
-<h1>Users#edit</h1>
+
 
 <% if @user.errors.any? %>
   <p>エラーがあります</p>
@@ -8,18 +8,26 @@
   <% end %>
   </ul>
 <% end %>
-
+<div class="form">
+<p class="title">ユーザ編集</p>
     <%= form_with model: @user, local: true do |f| %>
       <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %><br>
+        <div class="input-place">
+          <%= f.label :name %><br>
+          <%= f.text_field :name, class: "form-control" %><br>
+        </div>
 
-        <%= f.label :email %>
-        <%= f.text_field :email %><br>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %><br>
-
-        <%= f.submit "編集" %>
+        <div class="input-place">
+          <%= f.label :email %><br>
+          <%= f.text_field :email, class: "form-control" %><br>
+        </div>
+        <div class="input-place">
+          <%= f.label :password %><br>
+          <%= f.password_field :password, class: "form-control" %><br>
+        </div>
+        <div class="center">
+          <%= f.submit "送信", class: "submit-btn btn btn-light btn-outline-secondary" %>
+        </div>
       </div>
     <% end %>
+</div>
