@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.order(created_at: :desc)
   end
 
   def show
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(get_user)
     if @user.save
-      redirect_to users_path
+      redirect_to shops_path
     else
       render :new
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_path
+    redirect_to shops_path
   end
 
   def login

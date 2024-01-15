@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  before_action :logged_in_user, only:[:edit, :update, :destroy]
   protect_from_forgery except: :positionjs
   require 'net/http'
   require 'uri'
@@ -8,6 +9,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    
   end
 
   def positionjs
