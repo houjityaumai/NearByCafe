@@ -1,9 +1,8 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
-<%= render partial: "shops/like" %>
 <h1>TODOアプリ</h1>
 <% if logged_in? %>
   <%= render 'shops/logged_in' %>
 <% else %>
   <%= render 'shops/not_logged_in' %>
 <% end %>
+<%= render partial: "shops/like" %>
+<%#  しょうきのリモートリポジトリをプルする　<%= render partial: "shops/like" %>

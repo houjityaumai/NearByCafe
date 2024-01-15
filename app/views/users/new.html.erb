@@ -1,15 +1,13 @@
-<h1>User#new</h1>
+<%= form_with model: @user, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
 
-    <%= form_with model: @user, local: true do |f| %>
-      <div class="form-group">
-        <%= f.label :name %>
-        <%= f.text_field :name %><br>
+    <%= f.label :email %>
+    <%= f.text_field :email %><br>
 
-        <%= f.label :email %>
-        <%= f.text_field :email %><br>
+    <%= f.password_field :password %><br>
 
-        <%= f.password_field :password %><br>
-
-        <%= f.submit "登録" %>
-      </div>
-    <% end %>
+    <%= f.submit "登録" %>
+  </div>
+<% end %>

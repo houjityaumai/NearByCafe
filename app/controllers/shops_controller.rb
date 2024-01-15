@@ -5,6 +5,7 @@ class ShopsController < ApplicationController
   require 'json'
 
   def index
+    @shop = Shop.find(params[:shop_id])
   end
 
   def show  
@@ -43,10 +44,6 @@ class ShopsController < ApplicationController
   def search
   end
 
-  def like
-    @shop = User.all
-  end
-
   private
 
   def get_lat_and_lon
@@ -54,6 +51,7 @@ class ShopsController < ApplicationController
     return {latitude: params[:latitude],
               longitude: params[:longitude]}
   end
+  
 end
 
 # https://map.yahooapis.jp/search/local/V1/localSearch?appid=＜あなたのClient ID（アプリケーションID）＞&lat=35.665662327484&lon=139.73091159273&dist=3
