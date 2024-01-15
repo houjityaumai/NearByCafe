@@ -38,7 +38,7 @@ class ShopsController < ApplicationController
     logger.debug(json["results"]["shop"])
     @shops = []
     json["results"]["shop"].each do |shop|
-      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"])
+      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])
     end
   end
 
