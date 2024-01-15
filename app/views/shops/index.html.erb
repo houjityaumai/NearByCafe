@@ -1,5 +1,5 @@
 <header>
-<a href="index.html"><%= image_tag 'logo.png', class: 'logo_img' %></a>
+<a href="#"><%= image_tag 'logo.png', class: 'logo_img' %></a>
 <nav class="pc-nav">
     <ul>
         <li><a href="#">検索</a></li>
@@ -7,7 +7,7 @@
     </ul>
 </nav>
 </header>
-
+<%= link_to "位置情報を更新", action: :positionjs, remote: true %>
 <div class="b-wrap">
     <div class="b-container1">
         <div class="b-item1 imagbox"><%= image_tag 'img1.png' %></div>

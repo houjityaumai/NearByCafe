@@ -54,13 +54,14 @@ li a::after {
   content: '';
   width: 0;
   height: 2px;
-  background-color: #31aae2;
+  background-color: #e2aa31;
   transition: .3s;
   transform: translateX(-50%);
 }
 
 li a:hover{
   text-decoration: none;
+  color: #e2aa31;
 }
 
 li a:hover::after {
