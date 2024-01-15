@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     collection do
       get "position"
       get "search"
+      get "positionjs"
     end
   end
   resources :shops, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
