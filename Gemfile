@@ -52,6 +52,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+<<<<<<< HEAD
 gem 'jquery-rails'
 gem 'bootstrap','4.6.1'
 gem 'rails-i18n'
+=======
+# Bootstrap用
+gem 'jquery-rails'
+gem 'bootstrap', '4.6.1'
+
+#ホットペッパーapi
+gem 'httparty'
+
+gem 'jquery-turbolinks'
+>>>>>>> f64e4b22ec123051edb072e82b32078f3dabc789
