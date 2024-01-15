@@ -4,6 +4,7 @@ class ShopsController < ApplicationController
   end
 
   def show
+    
   end
 
   def position
