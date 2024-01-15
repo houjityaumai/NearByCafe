@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   root "shops#index"
-<<<<<<< HEAD
-=======
   resources :users
   resources :likes
->>>>>>> 0ae8c69b0b4463c167568b981519d84011af1f83
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
