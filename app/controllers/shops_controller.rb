@@ -4,8 +4,7 @@ class ShopsController < ApplicationController
   require 'json'
 
   def index
-    @shop = @shops#Shop.find(params[:shop_id])
-    @shop.to_s
+    @shop = Shop.all
   end
 
   def show  
