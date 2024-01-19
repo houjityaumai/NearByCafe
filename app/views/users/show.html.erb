@@ -25,9 +25,10 @@
   </tr>
 </table>
 <% if current_user?(@user) %>
-  <%= link_to '編集', edit_user_path(@user.id) %>
+  <%= link_to '編集', edit_user_path(@user.id), class: "btn btn-primary" %>
   <%= link_to "削除", user_path(@user.id),  
-            method: :delete, data: {confirm: "※削除するとログアウトされこのユーザでは再ログインできなくなります、そして最悪の場合お使いのパソコンのデータが破損する可能性がありますが、本当に削除しますか？"} %>
+            method: :delete, data: {confirm: "※削除するとログアウトされこのユーザでは再ログインできなくなります、そして最悪の場合お使いのパソコンのデータが破損する可能性がありますが、本当に削除しますか？"}, class: "btn btn-primary" %>
 <% else %>
   <p>じぶのしかへんしゅうさくじょできない</p>
 <% end %>
+<%= link_to '戻る', users_path, class: "btn btn-primary" %>

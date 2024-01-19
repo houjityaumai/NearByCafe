@@ -1,2 +1,15 @@
-<h1>Shops#show</h1>
-<p>Find me in app/views/shops/show.html.erb</p>
+<div>
+    <h2><%= @shop[0]["name"] %></h2>
+    <div class="flex">
+        <img src= <%= @shop[0]["photo"]["pc"]["l"] %> alt="店舗写真">
+        <ul class="text">
+            <li>住所：<%= @shop[0]["address"] %></li>
+            <li>営業時間：<%= @shop[0]["open"] %></li>
+            <li>定休日：<%= @shop[0]["close"] %>曜日</li>
+            <li>平均予算：<%= @shop[0]["budget"]["average"] %></li>
+        </ul>
+    </div>
+    <%= form_with model: @user, local: true do |f| %>
+        <%= f.submit "♡", class: "submit-btn btn btn-light btn-outline-secondary" %>
+    <% end %>
+</div>
