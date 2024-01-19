@@ -4,7 +4,9 @@
   <p>エラーがあります</p>
   <ul>
   <% @user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+    <% if message != 'パスワードは16文字以内で入力してください' %>
+      <li><%= message %></li>
+    <% end %>
   <% end %>
   </ul>
 <% end %>

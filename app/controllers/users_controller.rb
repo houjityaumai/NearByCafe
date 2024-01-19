@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(get_user)
     if @user.save
+      log_in(@user)
       redirect_to shops_path
     else
       render :new
