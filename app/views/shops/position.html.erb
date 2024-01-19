@@ -1,23 +1,36 @@
 <h1>近くのカフェ</h1>
-<%= link_to "位置情報を更新", action: :positionjs, remote: true %>
+<div class="position_serch m-2">
+  <%= form_tag({ action: :positionjs }, method: :get, remote: true) do %>
+    <!-- セレクトボックスの作成 -->
+    <span>半径</span>
+    <%= select_tag 'range', options_for_select([['300m', '1'], ['500m', '2'], ['1000m', '3'], ['2000m', '4'], ['3000m', '5']]) %>
+    <!-- 位置情報を更新するボタン -->
+    <%= submit_tag "位置情報を更新して検索", class: 'ml-2' %>
+  <% end %>
+</div>
+
 <div></div>
 <div class="shops-container w-75 mx-auto">
+  <% if @shops == [] %>
+    <p>近くにカフェはありません。検索範囲を広げてみましょう。</p>
+  <% else %>
   <% @shops.each do |shop| %>
     <div class="table-custom">
       <table class="table">
           <tr>
             <div class="i">
-              <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
+                       <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
             </div>
             <div class="a">
               <td class="pl-4 pt-4 pb-4">
-                <a href="##" class="title"><%= shop.name %></a>
+                <%= link_to shop.name, shop_path(id: shop.code) %>
                 <p><%= shop.address %></p>
               </td>
             </div>
           </tr>
       </table>
     </div>
+  <% end %>
   <% end %>
 </div>
 

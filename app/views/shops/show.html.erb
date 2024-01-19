@@ -1,15 +1,15 @@
-<header>
-    <h1>NearByCafe</h1>
-</header>
 <div>
-    <h1>シロカネ屋</h1>
+    <h2><%= @shop[0]["name"] %></h2>
     <div class="flex">
-        <img src="img/shirokane.png" alt="シロカネ屋">
+        <img src= <%= @shop[0]["photo"]["pc"]["l"] %> alt="店舗写真">
         <ul class="text">
-            <li>住所：</li>
-            <li>営業時間：</li>
-            <li>定休日：</li>
-            <li>予算：</li>
+            <li>住所：<%= @shop[0]["address"] %></li>
+            <li>営業時間：<%= @shop[0]["open"] %></li>
+            <li>定休日：<%= @shop[0]["close"] %>曜日</li>
+            <li>平均予算：<%= @shop[0]["budget"]["average"] %></li>
         </ul>
     </div>
+    <%= form_with model: @user, local: true do |f| %>
+        <%= f.submit "♡", class: "submit-btn btn btn-light btn-outline-secondary" %>
+    <% end %>
 </div>
