@@ -1,16 +1,21 @@
 <h1>近くのカフェ</h1>
 <%= link_to "位置情報を更新", action: :positionjs, remote: true %>
+<div></div>
 <div class="shops-container w-75 mx-auto">
   <% @shops.each do |shop| %>
     <div class="table-custom">
       <table class="table">
           <tr>
             <div class="i">
-              <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
+              <td class="store-img p-4 w-50"><img src=<%= shop.img %>>  
+              </td>
             </div>
             <div class="a">
               <td class="pl-4 pt-4 pb-4">
                 <a href="##" class="title"><%= shop.name %></a>
+                <%= link_to shop.name, shop_path(id: shop.code) %>
+
+                
                 <p><%= shop.address %></p>
               </td>
             </div>
