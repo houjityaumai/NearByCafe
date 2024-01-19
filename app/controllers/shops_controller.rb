@@ -62,7 +62,7 @@ class ShopsController < ApplicationController
       key: yahoo_key,
       lat: params[:latitude],
       lng: params[:longitude],
-      range: 5 ,
+      range: params[:range],
       genre: 'G014', # カフェを選択
       count: 20,
       format: 'json'
