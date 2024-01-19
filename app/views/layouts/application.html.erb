@@ -16,11 +16,13 @@
       <a href="#"><%= image_tag 'logo.png', class: 'logo_img' %></a>
       <nav class="pc-nav">
           <ul>
-              <li><a href="#">検索</a></li>
-              <li><a href="#">個人</a></li>
+              <li><%= link_to "Top", root_path %></li>
+              <li><%= link_to "位置情報検索", position_shops_path %></li>
+              <li><a href="#">エリア検索</a></li>
+              <li><a href="#">個人ページ</a></li>
           </ul>
       </nav>
     </header>
-    <%= yield %>
+    <div class = "m-5"><%= yield %></div>
   </body>
 </html>
