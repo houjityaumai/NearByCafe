@@ -37,25 +37,3 @@
 // // }
 
 // //todo 更新された@shops
-
-
-// script.js
-document.addEventListener('DOMContentLoaded', function() {
-    var currentIndex = 0;
-    var maxIndex = <%= @shops.length - 1 %>;
-  
-    function changeImage() {
-      // 現在の画像を非表示
-      document.getElementById('image' + (currentIndex + 1)).style.display = 'none';
-  
-      // インデックスを更新
-      currentIndex = (currentIndex + 1) % (maxIndex + 1);
-  
-      // 次の画像を表示
-      document.getElementById('image' + (currentIndex + 1)).style.display = 'block';
-    }
-  
-    // 5000ミリ秒（5秒）ごとに画像を切り替える
-    setInterval(changeImage, 5000);
-  });
-  

@@ -1,7 +1,7 @@
 <%= link_to "位置情報を更新", action: :positionjs, remote: true %>
 <div class="image-grid">
   <% @shops.each_with_index do |shop, index| %>
-    <div class="image-item" id="image<%= index + 1 %>">
+    <div class="image-item">
       <img src="<%= shop.img %>" alt="<%= shop.name %>">
     </div>
   <% end %>
