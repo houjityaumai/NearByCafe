@@ -13,12 +13,11 @@
  *= require_tree .
  *= require_self
  */
+ @import"bootstrap";
 
 
  /* index_css 追記 */
- @charset "utf-8";
 
- @import "bootstrap";
 
  header {
   width: 100%;
@@ -87,212 +86,12 @@ body {
   background-color: floralwhite;
 }
 
-.b-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 1920px;
-  margin: auto;
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px; /* アイテム間の余白を調整 */
 }
 
-.b-container1 {
-  display: grid;
-  padding: 10px;
-  height: 434px;
-  /* background: #f8cab4; */
-  grid-template:
-  "b-item1 ....... b-item2 ....... b-item3 ....... b-item4"
-  "b-item1 ....... b-item5 ....... b-item6 ....... b-item7"
-  /* "b-item1 ....... b-item8 ....... b-item9 ....... b-item10"
-  "b-item1 ....... b-item11 ....... b-item12 ....... b-item13"
-  "b-item1 ....... b-item14" */
-  /23.1% 12px 22.4% 12px 1fr 12px 13.5%;
-}
-
-.b-container2 {
-    display: grid;
-    padding: 10px;
-    height: 434px;
-    /* background: #f8cab4; */
-    grid-template:
-    "b-item8 ....... b-item9 ....... b-item10 ....... b-item11"
-    "b-item8 ....... b-item12 ....... b-item13 ....... b-item14"
-    /23.1% 12px 22.4% 12px 1fr 12px 13.5%;
-}
-  
-
-.b-item1, .b-item2, .b-item3, .b-item4, .b-item5, .b-item6, .b-item7,
-.b-item8, .b-item9, .b-item10, .b-item11, .b-item12, .b-item13, .b-item14
-{
-  /* border: 1px solid red; */
-  font-size: 20px;
-}
-
-.b-item1 {
-  grid-area: b-item1;
-  background: aqua;
-}
-
-.b-item2 {
-  grid-area: b-item2;
-  background: pink;
-  height: 247px;
-}
-
-.b-item3 {
-  grid-area: b-item3;
-  background: blanchedalmond;
-  height: 166px;
-}
-
-.b-item4 {
-  grid-area: b-item4;
-  background: orange;
-  height: 165px;
-}
-
-.b-item5 {
-  grid-area: b-item5;
-  background: blueviolet;
-  height: 150px;
-  margin-top: 16px;
-}
-
-.b-item6 {
-  grid-area: b-item6;
-  background: aliceblue;
-  width: 68.5%;
-  height: 234px;
-  margin-top: -67px;
-}
-
-.b-item7 {
-  position: absolute;
-  grid-area: b-item7;
-  background: aquamarine;
-  height: 234px;
-  width: 24%;
-  top: 190px;
-  right: 10px;
-}
-
-.b-item8 {
-    grid-area: b-item8;
-    background: aqua;
-}
-
-.b-item9 {
-    grid-area: b-item9;
-    background: pink;
-    height: 247px;
-}
-
-.b-item10 {
-    grid-area: b-item10;
-    background: blanchedalmond;
-    height: 166px;
-}
-
-.b-item11 {
-    grid-area: b-item11;
-    background: orange;
-    height: 165px;
-}
-
-.b-item12 {
-    grid-area: b-item12;
-    background: blueviolet;
-    height: 150px;
-    margin-top: 16px;
-}
-
-.b-item13 {
-    grid-area: b-item13;
-    background: aliceblue;
-    width: 68.5%;
-    height: 234px;
-    margin-top: -67px;
-}
-
-.b-item14 {
-    position: absolute;
-    grid-area: b-item14;
-    background: aquamarine;
-    height: 234px;
-    width: 24%;
-    bottom: 10px;
-    right: 10px;
-}
-
-
-.imagbox img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  vertical-align: bottom;
-}
-
-@media screen and (max-width: 900px) {
-    .b-container1 {
-        height: auto;
-        grid-template:
-        "b-item1 b-item2" 250px
-        "b-item1 b-item5" 200px
-        "b-item3 b-item4" 200px
-        "b-item6 b-item7" 300px
-        /* "b-item8 b-item9" 250px
-        "b-item8 b-item12" 200px
-        "b-item10 b-item11" 200px
-        "b-item13 b-item14" 300px */
-
-        / 1fr 1fr;
-        gap: 12px;
-    }
-
-    .b-item1, .b-item2, .b-item3, .b-item4, .b-item5, .b-item6, .b-item7
-    /* .b-item8, .b-item9, .b-item10, .b-item11, .b-item12, .b-item13, .b-item14  */
-    {
-        height: auto;
-    }
-
-    .b-item7 {
-        position: static;
-        width: auto;
-    }
-
-    .b-item6 {
-        width: 100%;
-        margin-top: 0;
-    }
-
-    .b-container2 {
-        height: auto;
-        grid-template:
-        /* "b-item1 b-item2" 250px
-        "b-item1 b-item5" 200px
-        "b-item3 b-item4" 200px
-        "b-item6 b-item7" 300px */
-        "b-item8 b-item9" 250px
-        "b-item8 b-item12" 200px
-        "b-item10 b-item11" 200px
-        "b-item13 b-item14" 300px
-
-        / 1fr 1fr;
-        gap: 12px;
-    }
-
-    /* .b-item1, .b-item2, .b-item3, .b-item4, .b-item5, .b-item6, .b-item7 */
-    .b-item8, .b-item9, .b-item10, .b-item11, .b-item12, .b-item13, .b-item14 
-    {
-        height: auto;
-    }
-
-    .b-item14 {
-        position: static;
-        width: auto;
-    }
-
-    .b-item13 {
-        width: 100%;
-        margin-top: 0;
-    }
+.image-item {
+  flex: 1 0 200px; /* アイテムの伸縮と最小幅を指定 */
 }

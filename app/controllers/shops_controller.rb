@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  before_action :logged_in_user, only:[:edit, :update, :destroy]
   protect_from_forgery except: :positionjs
   require 'net/http'
   require 'uri'
@@ -21,10 +22,17 @@ class ShopsController < ApplicationController
       http.request(req)
     end
     json = JSON.parse(ret.body)
-    logger.debug(json["results"]["shop"])
+    # logger.debug(json["results"]["shop"])
+    @shops = []
+    json["results"]["shop"].each do |shop|
+      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])    
+    end
+    logger.debug(@shops)
+
   end
 
   def show
+    
   end
 
   def positionjs
@@ -53,8 +61,7 @@ class ShopsController < ApplicationController
     logger.debug(json["results"]["shop"])
     @shops = []
     json["results"]["shop"].each do |shop|
-      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"])
-    end
+      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])    end
   end
 
   def search
