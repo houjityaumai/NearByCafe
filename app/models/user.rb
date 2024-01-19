@@ -4,15 +4,17 @@ class User < ApplicationRecord
   validates :name,
     presence: true,
     length: {
-      maximum: 50
+      maximum: 50,
+      allow_blank: true
     }
   validates :email,
-    presence: true,
-    length: {
-      maximum: 100
-    }
-  validates :password_digest,
-  length: {
-    maximum: 300
-  }
+    format: { with: URI::MailTo::EMAIL_REGEXP },
+    uniqueness: true
+  VALID_PASSWORD_REGEX = /\A[\w\-]+\z/
+  validates :password,
+    length: { in: 8..16 },
+    format: { with: VALID_PASSWORD_REGEX,
+    message: "は8~16文字で入力する必要があります"},
+    allow_nil: true
+  
 end
