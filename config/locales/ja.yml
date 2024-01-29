@@ -6,4 +6,5 @@ ja:
       user:
         name: '名前'
         email: 'Eメール'
+        password_digest: 'パスワード'
         password: 'パスワード'

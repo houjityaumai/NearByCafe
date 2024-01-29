@@ -35,5 +35,3 @@
 // //               <p><%= shop.name %>/<%= shop.address %></p>
 // //           <% end %>`)
 // // }
-
-// //todo 更新された@shops
