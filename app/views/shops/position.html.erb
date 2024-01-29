@@ -12,14 +12,17 @@
 <div></div>
 <div class="shops-container w-75 mx-auto">
   <% if @shops == [] %>
-    <p>近くにカフェはありません。検索範囲を広げてみましょう。</p>
-  <% else %>
+    <div class="text-center m-5">
+      <p>近くにカフェはありません。検索範囲を広げてみましょう。</p>
+      <%= image_tag 'cafe.png', class: "w-25 m-5" %>
+        <% else %>
+    </div>
   <% @shops.each do |shop| %>
     <div class="table-custom">
       <table class="table">
           <tr>
             <div class="i">
-                       <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
+              <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
             </div>
             <div class="a">
               <td class="pl-4 pt-4 pb-4">
