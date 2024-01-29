@@ -22,6 +22,17 @@
     <tr>
     <th>likes</th>
     <td><%= @user.name %></td>
+    <td>
+      <%# <% @shops.where(code: @user.likes.shop_id).each do |like_shop| %> 
+        <%# <% @shops.each do |n|  %>
+        <% @shops.each do |shop| %>
+        <% if shop.code ==  @user.likes.shop_id %>
+          <%= shop.name %>
+        <% end %>
+        <% end %>
+
+    </td>
+
   </tr>
 </table>
 <% if current_user?(@user) %>

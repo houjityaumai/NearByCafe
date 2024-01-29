@@ -13,11 +13,5 @@ CSV.foreach("db/user_csv.csv", headers: true) do |row|
   User.create(name: row["name"], email: row["email"], password: row["password"], password_confirmation: row["password"])
 end
 
-Like.create!(user_id:1, shop_id:1)
-Like.create!(user_id:1, shop_id:2)
-Like.create!(user_id:1, shop_id:3)
-Like.create!(user_id:1, shop_id:3)
-Like.create!(user_id:2, shop_id:1)
-Like.create!(user_id:2, shop_id:2)
-Like.create!(user_id:3, shop_id:1)
+
 
