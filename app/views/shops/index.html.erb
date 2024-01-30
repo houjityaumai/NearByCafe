@@ -8,13 +8,11 @@
     </div>
   <% end %>
 </div>
-<h1>shops#index</h1>
 <% if logged_in? %>
   <%= render 'shops/logged_in' %>
 <% else %>
   <%= render 'shops/not_logged_in' %>
 <% end %>
-<%= link_to 'ゆーざいちらん', users_path, class: "btn btn-primary" %>
 
 
 <%# 位置情報を取得して、近い距離のお店の写真を表示

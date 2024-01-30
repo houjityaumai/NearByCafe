@@ -14,6 +14,9 @@
   <body>
     <header>
       <a href="#"><%= image_tag 'logo.png', class: 'logo_img' %></a>
+      <% if current_user %>
+      <%= @current_user.name %>
+      <% end %>
       <nav class="pc-nav">
           <ul>
               <li><%= link_to "Top", root_path %></li>

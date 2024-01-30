@@ -10,16 +10,14 @@ require "csv"
 User.destroy_all
 puts "user初期データ生成"
 CSV.foreach("db/user_csv.csv", headers: true) do |row|
-  User.create(name: row["name"], email: row["email"], password: row["password"], password_confirmation: row["password"])
+  puts "------------------"
+  puts row["name"]
+  User.create!(name: row["name"], email: row["email"], password: row["password"], password_confirmation: row["password"])
+  puts "作成"
 end
 
-Like.create!(user_id:1, shop_id:1)
-Like.create!(user_id:1, shop_id:2)
-Like.create!(user_id:1, shop_id:3)
-Like.create!(user_id:1, shop_id:3)
-Like.create!(user_id:2, shop_id:1)
-Like.create!(user_id:2, shop_id:2)
-Like.create!(user_id:3, shop_id:1)
+
+Like.create!(user:1, shopid:"J003532056")
 
 Prefecture.destroy_all
 puts "都道府県初期データ生成"
