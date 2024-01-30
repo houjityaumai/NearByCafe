@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  root "shops#index"
+  root 'users#new'
   resources :users
   resources :likes
   get    '/login',   to: 'sessions#new'

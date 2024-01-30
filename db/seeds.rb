@@ -17,5 +17,5 @@ CSV.foreach("db/user_csv.csv", headers: true) do |row|
 end
 
 
-# Like.create!(user_id:1, shopid:"J003532056")
+Like.create!(user:1, shopid:"J003532056")
 
