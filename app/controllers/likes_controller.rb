@@ -1,15 +1,16 @@
 class LikesController < ApplicationController
-  def create
-    book = Book.find(params[:book_id])
-    favorite = current_user.favorites.new(book_id: book.id)
-    favorite.save
-    redirect_to request.referer
-  end
   
+  def create
+    shop = Shop.find(params[:shop_id])
+    like = current_user.likes.new(shop_id: shop.id)
+    like.save
+    redirect_to likes_path(params[:id])
+  end
+
   def destroy
-    book = Book.find(params[:book_id])
-    favorite = current_user.favorites.find_by(book_id: book.id)
-    favorite.destroy
-    redirect_to request.referer
+    shop = Shop.find(params[:shop_id])
+    like = current_user.likes.find_by(shop_id: shop.id)
+    like.destroy
+    redirect_to shops_path
   end
 end

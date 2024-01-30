@@ -18,7 +18,12 @@
     <td><%= @user.updated_at.strftime("%Y/%m/%d") %></td>
   </tr>
 </table>
-
+<table class="table">
+    <tr>
+    <th>likes</th>
+    <td><%= @user.name %></td>
+  </tr>
+</table>
 <% if current_user?(@user) %>
   <%= link_to '編集', edit_user_path(@user.id), class: "btn btn-primary" %>
   <%= link_to "削除", user_path(@user.id),  

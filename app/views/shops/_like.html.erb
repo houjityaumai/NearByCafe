@@ -1,0 +1,9 @@
+<% if Like.exists?(user_id: current_user, shopid: params[:id])  %>
+  <%# <%= link_to shop_likes_path(@shop), method: :delete do %> %>
+    <i class="far fa-heart">aaaaaaff</i>
+    <%# <%= @shop.likes.count %> %>
+  <%# <% end %> %>
+<% else %>
+<%= button_to "いいね", 'likes/create', method: :post %>
+
+<% end %>

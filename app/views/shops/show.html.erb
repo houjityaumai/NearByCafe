@@ -10,6 +10,6 @@
         </ul>
     </div>
     <%= form_with model: @user, local: true do |f| %>
-        <%= f.submit "♡", class: "submit-btn btn btn-light btn-outline-secondary" %>
+    <%= render './shops/like' %>
     <% end %>
 </div>
