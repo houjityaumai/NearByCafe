@@ -1,2 +1,96 @@
-<h1>Shops#search</h1>
-<p>Find me in app/views/shops/search.html.erb</p>
+<h1>エリアで探す</h1>
+
+<%= form_with url: search_shops_path, class: "js-text_field", method: :get, remote: true do |f| %>
+  <div class='form-group'>
+    <%#= f.label :keyword, "キーワード", class: 'display-8 text-primary' %>
+    <%#= f.text_field :keyword, class: 'form-control' %>
+    <div class="accordions">
+      <details class="accordion-001">
+        <summary>関東</summary>
+        <% @prefectures[0..6].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>関西</summary>
+        <% @prefectures[7..12].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+    </div>
+    <div class="accordions">
+      <details class="accordion-001">
+        <summary>東海</summary>
+        <% @prefectures[13..16].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>北海道</summary>
+        <label><%= @prefectures[17].name %><%= f.radio_button :large_area, @prefectures[18].service_area_code %></label>
+      </details>
+    </div>
+    <div class="accordions">
+      <details class="accordion-001">
+        <summary>東北</summary>
+        <% @prefectures[18..23].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>北陸・甲信越</summary>
+        <% @prefectures[25..29].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+    </div>
+    <div class="accordions">
+      <details class="accordion-001">
+        <summary>中国</summary>
+        <% @prefectures[30..34].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+      <details class="accordion-001">
+        <summary>四国</summary>
+        <% @prefectures[35..38].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+    </div>
+    <div class="accordions">
+      <details class="accordion-001">
+        <summary>九州・沖縄</summary>
+        <% @prefectures[39..46].each do |prefecture| %>
+          <label><%= prefecture.name %><%= f.radio_button :large_area, prefecture.service_area_code %></label>
+        <% end %>
+      </details>
+    </div>
+  </div>
+  <%= f.submit "エリアを探す", class: 'btn' %>
+
+<% end %>
+<div></div>
+<div class="shops-container w-75 mx-auto">
+  <% if @shops == [] %>
+    <p>あぁ、、その検索結果は見つかりませんでした。</p>
+  <% else %>
+    <% @shops.each do |shop| %>
+      <div class="table-custom">
+        <table class="table">
+            <tr>
+              <div class="i">
+                <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
+              </div>
+              <div class="a">
+                <td class="pl-4 pt-4 pb-4">
+                  <%= link_to shop.name, shop_path(id: shop.code) %>
+                  <p><%= shop.address %></p>
+                </td>
+              </div>
+            </tr>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+</div>
