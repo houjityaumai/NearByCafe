@@ -16,9 +16,7 @@
  @import"bootstrap";
 
 
- /* index_css 追記 */
-
-
+ /* shop_index css 追記 */
  header {
   width: 100%;
   padding: 0 50px 0 40px;
@@ -33,10 +31,9 @@
   box-sizing: border-box;
 }
 
-.logo_img {
-  height: 90px;
-  width: 100%;
-}
+h1 {
+  font-size: 59px;
+  font-family: 'Gravitas One', serif;}
 
 li a {
   text-decoration: none;

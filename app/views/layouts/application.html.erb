@@ -6,21 +6,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
     <header>
-      <a href="#"><%= image_tag 'logo.png', class: 'logo_img' %></a>
+      <h1>Near By Cafe</h1>
       <nav class="pc-nav">
-          <ul>
-              <li><%= link_to "Top", root_path %></li>
-              <li><%= link_to "位置情報検索", position_shops_path %></li>
-              <li><a href="#">エリア検索</a></li>
-              <li><a href="#">個人ページ</a></li>
-          </ul>
+        <ul>
+          <li><%= link_to "Top", root_path %></li>
+          <li><%= link_to "位置情報検索", position_shops_path %></li>
+          <li><a href="#">エリア検索</a></li>
+          <li><a href="#">個人ページ</a></li>
+        </ul>
       </nav>
     </header>
     <div class = "m-5"><%= yield %></div>
