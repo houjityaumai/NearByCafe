@@ -48,7 +48,9 @@ class ShopsController < ApplicationController
       http.request(req)
     end
     json = JSON.parse(ret.body)
+    @shop = []
     @shop = json["results"]["shop"]
+    logger.debug(@shop)
   end
 
   # todo showを作成する
