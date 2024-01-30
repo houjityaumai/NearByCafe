@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get "position"
       get "search"
       get "positionjs"
+      get "thumbs_good"
     end
   end
 end
