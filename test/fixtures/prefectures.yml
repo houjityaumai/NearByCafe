@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  large_service_area: MyString
+  service_area_code: MyString
+  name: MyString
+
+two:
+  large_service_area: MyString
+  service_area_code: MyString
+  name: MyString

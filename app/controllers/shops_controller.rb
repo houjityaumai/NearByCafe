@@ -86,6 +86,28 @@ class ShopsController < ApplicationController
   end
 
   def search
+    @prefectures = Prefecture.all
+    yahoo_key = "64021912cf2b3b35"
+    url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
+    url.query = URI.encode_www_form({
+      key: yahoo_key,
+      keyword: params[:keyword],
+      range: 5 ,
+      genre: 'G014', # カフェを選択
+      count: 20,
+      large_area: params[:large_area],
+      format: 'json'
+    })
+    req = Net::HTTP::Get.new(url.request_uri)
+    ret = Net::HTTP::start(url.host, url.port) do |http|
+      http.request(req)
+    end
+    json = JSON.parse(ret.body)
+    # logger.debug(json["results"]["shop"])
+    @shops = []
+    json["results"]["shop"].each do |shop|
+      @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])    
+    end
   end
 
   def like

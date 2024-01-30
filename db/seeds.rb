@@ -19,3 +19,8 @@ end
 
 Like.create!(user:1, shopid:"J003532056")
 
+Prefecture.destroy_all
+puts "都道府県初期データ生成"
+CSV.foreach("db/prefecture.csv", headers: true) do |row|
+  Prefecture.create(large_service_area: row["large_service_area"], service_area_code: row["service_area_code"], name: row["name"])
+end
