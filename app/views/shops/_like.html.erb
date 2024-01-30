@@ -4,8 +4,6 @@
     <%# <%= @shop.likes.count %> %>
   <%# <% end %> %>
 <% else %>
-  <%# <%= link_to shop_likes_path(@shop), method: :post do %> %>
-    <i class="far fa-heart">bbbbb</i>
-    <%# <%= @shop.likes.count %> %>
-  <%# <% end %> %>
+<%= button_to "いいね", 'likes/create', method: :post %>
+
 <% end %>
