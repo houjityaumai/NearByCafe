@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   def index
+    logger.debug("--------------------------")
+    logger.debug(logged_in?)
+    logger.debug(@current_user.name)
     @users = User.order(created_at: :desc)
   end
 
@@ -8,10 +11,16 @@ class UsersController < ApplicationController
   end
 
   def new
+    logger.debug("--------------------------")
+    logger.debug(logged_in?)
+    logger.debug(@current_user.name)
     @user = User.new
   end
 
   def create
+    logger.debug("--------------------------")
+    logger.debug(logged_in?)
+    logger.debug(@current_user.name)
     @user = User.new(get_user)
     if @user.save
       log_in(@user)

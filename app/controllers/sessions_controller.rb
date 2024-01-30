@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+    logger.debug("--------------------------")
+    logger.debug(logged_in?)
+    logger.debug(@current_user.name)
     @user = User.new
   end
   
