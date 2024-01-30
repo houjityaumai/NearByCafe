@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'users#new'
   resources :users
   # resources :likes, only: [:create, :destroy]
-  post 'likes/create', to: 'likes#create'
-  delete 'likes/destroy', to: 'likes#destroy'
+  post 'shops/create/:id', to: 'shops#create'
+  delete 'shops/destroy/:id', to: 'shops#destroy'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'

@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
   
   def create
+    binding.pry
     shop = Shop.find(params[:shop_id])
     like = current_user.likes.new(shop_id: shop.id)
     like.save

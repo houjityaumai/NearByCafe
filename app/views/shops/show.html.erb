@@ -9,7 +9,5 @@
             <li>平均予算：<%= @shop[0]["budget"]["average"] %></li>
         </ul>
     </div>
-    <%= form_with model: @user, local: true do |f| %>
-    <%= render './shops/like' %>
-    <% end %>
+    <%= render 'shops/like' %>
 </div>
