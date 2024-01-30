@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
   before_action :logged_in_user, only:[:edit, :update, :destroy]
+  before_action :require_login, only:[:index, :show, :position, :search, :like, :location]
   protect_from_forgery except: :positionjs
   require 'net/http'
   require 'uri'
@@ -32,8 +33,10 @@ class ShopsController < ApplicationController
   end
 
   def location
-    respond_to do |format|
-      format.js
+    if current_user
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
@@ -158,6 +161,13 @@ class ShopsController < ApplicationController
     # latitude:緯度、longitude:経度
     return {latitude: params[:latitude],
               longitude: params[:longitude]}
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:alert] = "ログインが必要です"
+      redirect_to sessions_new_path
+    end
   end
 end
 
