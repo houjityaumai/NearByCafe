@@ -2,7 +2,9 @@
 <div class="image-grid">
   <% @shops.each_with_index do |shop, index| %>
     <div class="image-item">
-      <img src="<%= shop.img %>" alt="<%= shop.name %>">
+        <%= link_to shop_path(id: shop.code) do %>
+            <img src="<%= shop.img %>" alt="<%= shop.name %>">
+        <% end %>    
     </div>
   <% end %>
 </div>
