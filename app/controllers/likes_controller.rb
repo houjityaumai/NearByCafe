@@ -4,7 +4,7 @@ class LikesController < ApplicationController
     shop = Shop.find(params[:shop_id])
     like = current_user.likes.new(shop_id: shop.id)
     like.save
-    redirect_to shops_path
+    redirect_to likes_path(params[:id])
   end
 
   def destroy
