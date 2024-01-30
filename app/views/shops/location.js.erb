@@ -1,9 +1,8 @@
-
 function successCallback(position){
   if (navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
       function(position){
-        window.location.href = "/shops/position?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude + "&range=" + '<%= params[:range] %>'
+          window.location.href = "/shops?latitude=" + position.coords.latitude + "&longitude=" + position.coords.longitude + "&range=" + '<%= params[:range] %>'
       }
     )
   }

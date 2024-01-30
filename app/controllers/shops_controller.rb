@@ -28,7 +28,12 @@ class ShopsController < ApplicationController
       @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])    
     end
     logger.debug(@shops)
+  end
 
+  def location
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
