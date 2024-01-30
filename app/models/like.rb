@@ -1,4 +1,7 @@
 class Like < ApplicationRecord
   belongs_to :user
-  belongs_to :shop
+  def liked_by?(user)
+    Like.exists?(user_id: user.id) 
+  end
+  
 end
