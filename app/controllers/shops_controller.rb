@@ -30,6 +30,14 @@ class ShopsController < ApplicationController
     json["results"]["shop"].each do |shop|
       @shops << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])    
     end
+
+    logger.debug(@shops)
+  end
+
+  def location
+    respond_to do |format|
+      format.js
+    end
   end
 
   def show
