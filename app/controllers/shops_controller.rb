@@ -6,9 +6,6 @@ class ShopsController < ApplicationController
   require 'json'
 
   def index
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    logger.debug(@current_user.name)
     yahoo_key = "64021912cf2b3b35"
     url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
     url.query = URI.encode_www_form({
@@ -41,9 +38,6 @@ class ShopsController < ApplicationController
   end
 
   def show
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    logger.debug(@current_user.name)
     yahoo_key = "64021912cf2b3b35"
     url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
     url.query = URI.encode_www_form({
@@ -143,13 +137,8 @@ class ShopsController < ApplicationController
   end
 
   def create
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    # logger.debug(@current_user)
-    # logger.debug(@current_user.name)
     if logged_in?
       like = Like.new(user: current_user, shopid: params[:id])
-      logger.debug(like)
       like.save!
       redirect_to shop_path(params[:id])
     else
@@ -159,8 +148,6 @@ class ShopsController < ApplicationController
 
   def destroy
     like = Like.find_by(user_id: @current_user.id, shopid: params[:id])
-    logger.debug("-------------------------")
-    logger.debug(like)
     like.destroy
     redirect_to shop_path(params[:id])
   end

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2024_01_29_053241) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "shop_id"
+    t.string "shopid"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
