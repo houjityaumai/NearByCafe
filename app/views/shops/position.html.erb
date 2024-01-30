@@ -14,23 +14,23 @@
   <% if @shops == [] %>
     <p>近くにカフェはありません。検索範囲を広げてみましょう。</p>
   <% else %>
-  <% @shops.each do |shop| %>
-    <div class="table-custom">
-      <table class="table">
-          <tr>
-            <div class="i">
-                       <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
-            </div>
-            <div class="a">
-              <td class="pl-4 pt-4 pb-4">
-                <%= link_to shop.name, shop_path(id: shop.code) %>
-                <p><%= shop.address %></p>
-              </td>
-            </div>
-          </tr>
-      </table>
-    </div>
-  <% end %>
+    <% @shops.each do |shop| %>
+      <div class="table-custom">
+        <table class="table">
+            <tr>
+              <div class="i">
+                        <td class="store-img p-4 w-50"><img src=<%= shop.img %>></td>
+              </div>
+              <div class="a">
+                <td class="pl-4 pt-4 pb-4">
+                  <%= link_to shop.name, shop_path(id: shop.code) %>
+                  <p><%= shop.address %></p>
+                </td>
+              </div>
+            </tr>
+        </table>
+      </div>
+    <% end %>
   <% end %>
 </div>
 

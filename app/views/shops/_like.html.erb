@@ -1,0 +1,14 @@
+<% if Like.exists?(user_id: current_user, shopid: params[:id])  %>
+ <%= form_with url: "destroy/#{params[:id]}", method: :delete, local: true do |f| %>
+<%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+  <%= hidden_field_tag 'like[shopid]', params[:id] %>
+  <%= f.submit "いいねを外す", class: "submit-btn btn btn-light btn-outline-secondary" %>
+<% end %>
+<% else %>
+<%= form_with model: Like.new, url: "create/#{params[:id]}", method: :post, local: true do |f| %>
+<%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+  <%= hidden_field_tag 'like[shopid]', params[:id] %>
+  <%= f.submit "いいね", class: "submit-btn btn btn-light btn-outline-secondary" %>
+<% end %>
+
+<% end %>
