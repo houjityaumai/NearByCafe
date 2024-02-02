@@ -103,20 +103,6 @@ label {
   width: 100%;
 }
 
-@media (max-width: 768px) {
-  .form-group {
-    display: block;
-    padding-bottom: 24px;
-  }
-
-  input.btn {
-    position: static;
-  }
-
-  img {
-    margin: 50px 0 30px 20px;
-  }
-}
 
 .flex {
   display: flex; /*横並び*/
@@ -204,17 +190,5 @@ label {
   transform: rotate(225deg);
 }
 
-@media (max-width: 768px) {
-  .form-group {
-    display: block;
-    padding-bottom: 24px;
-  }
-  input.btn {
-    position: static;
-  }
-  img {
-    margin: 50px 0 30px 20px;
-  }
-}
 
 /*# sourceMappingURL=shops.css.map */
