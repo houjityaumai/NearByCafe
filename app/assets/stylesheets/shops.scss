@@ -91,6 +91,10 @@ label {
   transform: rotate(225deg);
 }
 
+.accordions {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .form-group {
     display: block;
