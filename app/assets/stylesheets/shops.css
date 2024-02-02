@@ -1,8 +1,4 @@
-// Place all the styles related to the shops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
 @charset "UTF-8";
-
 .flex {
   display: flex; /*横並び*/
 }
@@ -19,7 +15,6 @@
   margin: 0 0 0 20px;
   padding: 0;
 } */
-
 ul {
   list-style: none;
 }
@@ -28,7 +23,6 @@ ul li {
   padding-bottom: 20px;
 }
 
-// アコーディオン
 .form-group {
   display: flex;
   justify-content: space-evenly;
@@ -95,7 +89,6 @@ label {
   width: 100%;
 }
 
-
 .flex {
   display: flex; /*横並び*/
 }
@@ -181,6 +174,4 @@ label {
 .accordion-001[open] summary::after {
   transform: rotate(225deg);
 }
-
-
 /*# sourceMappingURL=shops.css.map */
