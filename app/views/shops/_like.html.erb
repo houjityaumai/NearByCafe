@@ -2,13 +2,17 @@
  <%= form_with url: "destroy/#{params[:id]}", method: :delete, local: true do |f| %>
 <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
   <%= hidden_field_tag 'like[shopid]', params[:id] %>
-  <%= f.submit "いいねを外す", class: "submit-btn btn btn-light btn-outline-secondary" %>
+  <%= f.button :submit, class: "submit-btn btn btn-light btn-outline-secondary" do %>
+    <%= image_tag("ハートのマーク.png", alt: "ハートのマーク", size: "50x50") %>
+  <% end %>
 <% end %>
 <% else %>
 <%= form_with model: Like.new, url: "create/#{params[:id]}", method: :post, local: true do |f| %>
 <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
   <%= hidden_field_tag 'like[shopid]', params[:id] %>
-  <%= f.submit "いいね", class: "submit-btn btn btn-light btn-outline-secondary" %>
+    <%= f.button :submit, class: "submit-btn btn btn-light btn-outline-secondary" do %>
+    <%= image_tag("ハートのマーク2.png", alt: "ハートのマーク", size: "50x50") %>
+  <% end %>
 <% end %>
 
 <% end %>

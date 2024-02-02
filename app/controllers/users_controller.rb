@@ -5,6 +5,26 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @likes = []
+    @user.likes.each do |like|
+      yahoo_key = "64021912cf2b3b35"
+    url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
+    url.query = URI.encode_www_form({
+      key: yahoo_key,
+      id: like.shopid,
+      format: 'json'
+    })
+    req = Net::HTTP::Get.new(url.request_uri)
+    ret = Net::HTTP::start(url.host, url.port) do |http|
+      http.request(req)
+    end
+    json = JSON.parse(ret.body)
+    # logger.debug(json["results"]["shop"])
+    
+    json["results"]["shop"].each do |shop|
+      @likes << Utils::Shop.new(shop["name"], shop["address"], shop["photo"]["pc"]["l"], shop["id"])    
+    end
+    end
   end
 
   def new

@@ -1,13 +1,30 @@
 <div>
     <h2><%= @shop[0]["name"] %></h2>
     <div class="flex">
-        <img src= <%= @shop[0]["photo"]["pc"]["l"] %> alt="店舗写真">
+        <div class="show_img">
+            <img src= <%= @shop[0]["photo"]["pc"]["l"] %> alt="店舗写真">
+        </div>
         <ul class="text">
-            <li>住所：<%= @shop[0]["address"] %></li>
-            <li>営業時間：<%= @shop[0]["open"] %></li>
-            <li>定休日：<%= @shop[0]["close"] %>曜日</li>
-            <li>平均予算：<%= @shop[0]["budget"]["average"] %></li>
+            <li></li>
         </ul>
+<table>
+    <tr>
+        <th style="font-weight: bold;" colspan="3">住所:</th>
+        <td><%= @shop[0]["address"] %></td>
+    </tr>
+    <tr>
+        <th style="font-weight: bold;" colspan="3">営業時間:</th>
+        <td><%= @shop[0]["open"] %></td>
+    </tr>
+    <tr>
+        <th style="font-weight: bold;" colspan="3">定休日:</th>
+        <td><%= @shop[0]["close"] %>曜日</td>
+    </tr>
+    <tr>
+        <th style="font-weight: bold;" colspan="3">平均予算:</th>
+        <td><%= @shop[0]["budget"]["average"] %></td>
+    </tr>
+</table>
     </div>
     <%= render 'shops/like' %>
 </div>
