@@ -27,8 +27,16 @@
 .submit-btn {
   width: 100px;
 }
-.center {
+.center-btn {
   width: 100px;
   margin: 0 auto;
   margin-top: 20px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+input.btn {
+  position: static;
 }

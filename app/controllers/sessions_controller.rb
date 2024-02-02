@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
 
   def new
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    logger.debug(@current_user.name)
     @user = User.new
   end
   
@@ -13,7 +10,7 @@ class SessionsController < ApplicationController
       log_in user
       redirect_to shops_path
     else
-      render "new"
+      render :new
     end
   end
 

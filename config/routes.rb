@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
-  root 'users#new'
+  root 'sessions#new'
   resources :users
   # resources :likes, only: [:create, :destroy]
   post 'shops/create/:id', to: 'shops#create'
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get "position"
       get "search"
       get "positionjs"
+      get "location"
       get "thumbs_good"
     end
   end

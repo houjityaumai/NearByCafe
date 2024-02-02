@@ -1,14 +1,12 @@
 class ShopsController < ApplicationController
   before_action :logged_in_user, only:[:edit, :update, :destroy]
+  before_action :require_login, only:[:index, :show, :position, :search, :like, :location]
   protect_from_forgery except: :positionjs
   require 'net/http'
   require 'uri'
   require 'json'
 
   def index
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    logger.debug(@current_user.name)
     yahoo_key = "64021912cf2b3b35"
     url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
     url.query = URI.encode_www_form({
@@ -35,15 +33,14 @@ class ShopsController < ApplicationController
   end
 
   def location
-    respond_to do |format|
-      format.js
+    if current_user
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
   def show
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    logger.debug(@current_user.name)
     yahoo_key = "64021912cf2b3b35"
     url = URI.parse("http://webservice.recruit.co.jp/hotpepper/gourmet/v1/")
     url.query = URI.encode_www_form({
@@ -143,13 +140,8 @@ class ShopsController < ApplicationController
   end
 
   def create
-    logger.debug("--------------------------")
-    logger.debug(logged_in?)
-    # logger.debug(@current_user)
-    # logger.debug(@current_user.name)
     if logged_in?
       like = Like.new(user: current_user, shopid: params[:id])
-      logger.debug(like)
       like.save!
       redirect_to shop_path(params[:id])
     else
@@ -159,8 +151,6 @@ class ShopsController < ApplicationController
 
   def destroy
     like = Like.find_by(user_id: @current_user.id, shopid: params[:id])
-    logger.debug("-------------------------")
-    logger.debug(like)
     like.destroy
     redirect_to shop_path(params[:id])
   end
@@ -171,6 +161,13 @@ class ShopsController < ApplicationController
     # latitude:緯度、longitude:経度
     return {latitude: params[:latitude],
               longitude: params[:longitude]}
+  end
+
+  def require_login
+    unless logged_in?
+      flash[:alert] = "ログインが必要です"
+      redirect_to sessions_new_path
+    end
   end
 end
 
