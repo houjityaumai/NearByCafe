@@ -1,4 +1,3 @@
-<h1>Users#show</h1>
 <table class="table">
   <tr>
     <th>name</th>
@@ -18,12 +17,17 @@
     <td><%= @user.updated_at.strftime("%Y/%m/%d") %></td>
   </tr>
 </table>
+<h3><%= @user.name %>のいいね一覧</h3>
 <table class="table">
+  <% @likes.each do |like| %>
     <tr>
-    <th>likes</th>
-    <td><%= @user.name %></td>
-  </tr>
+      <th><img src="<%= like.img %>"></th>
+      <td><%= link_to like.name, shop_path(like.code) %></td>
+      <td><%= like.address %></td>
+    </tr>
+  <% end %>
 </table>
+
 <% if current_user?(@user) %>
   <%= link_to '編集', edit_user_path(@user.id), class: "btn btn-primary" %>
   <%= link_to "削除", user_path(@user.id),  
